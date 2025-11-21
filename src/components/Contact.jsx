@@ -40,7 +40,7 @@ const Contact = () => {
       icon: Github,
       label: 'GitHub',
       value: '@meruvlokesh',
-      link: 'https://github.com/meruvlokesh',
+      link: 'https://github.com/meruva-lokesh',
       gradient: 'from-gray-500 to-gray-700'
     }
   ];
@@ -321,7 +321,7 @@ const Contact = () => {
 
               {/* Note */}
               <p className="mt-6 text-sm text-gray-500 text-center">
-                Note: Add your EmailJS credentials to the .env file to enable form submissions
+                
               </p>
             </div>
           </motion.div>

@@ -18,8 +18,8 @@ const Projects = () => {
         'Real-time predictions',
         'Flask web interface'
       ],
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/meruva-lokesh/ResNet-Powered-Web-Application-for-Multi-Class-Vehicle-Image-Classification',
+      demo: 'https://github.com/meruva-lokesh/ResNet-Powered-Web-Application-for-Multi-Class-Vehicle-Image-Classification',
       image: 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20'
     },
     {
@@ -36,8 +36,8 @@ const Projects = () => {
         'Scoring and recommendations',
         'Interactive Gradio interface'
       ],
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/meruva-lokesh/Resume-Matcher',
+      demo: 'https://huggingface.co/spaces/loki2910/Resume-Analyser',
       image: 'bg-gradient-to-br from-purple-500/20 to-pink-500/20'
     },
     {
@@ -54,8 +54,8 @@ const Projects = () => {
         'Real-time recognition',
         'Flask API deployment'
       ],
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/meruva-lokesh/Handwritten-Digit-Recognition',
+      demo: 'https://github.com/meruva-lokesh/Handwritten-Digit-Recognition',
       image: 'bg-gradient-to-br from-orange-500/20 to-red-500/20'
     }
   ];
@@ -202,7 +202,7 @@ const Projects = () => {
         >
           <p className="text-gray-400 mb-6">Want to see more of my work?</p>
           <a
-            href="https://github.com/meruvlokesh"
+            href="https://github.com/meruva-lokesh"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border-2 border-primary/50 rounded-full text-white font-semibold hover:bg-primary/10 hover:border-primary transition-all hover:scale-105 backdrop-blur-sm"

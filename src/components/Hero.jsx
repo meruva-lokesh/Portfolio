@@ -53,13 +53,13 @@ const Hero = () => {
     {
       name: 'GitHub',
       icon: Github,
-      url: 'https://github.com/meruvlokesh',
+      url: 'https://github.com/meruva-lokesh',
       color: 'hover:text-white'
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://www.linkedin.com/in/meruva-lokesh',
+      url: 'https://www.linkedin.com/in/lokesh-meruva-1a16b628a/',
       color: 'hover:text-blue-500'
     },
     {

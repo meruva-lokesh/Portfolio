@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, Download, ExternalLink, Database, Brain, CheckCircle2 } from 'lucide-react';
+import { Award, ExternalLink, Database, Brain, CheckCircle2, Eye, X } from 'lucide-react';
+
+// Import your certificate images from assets folder
+import sql_basic from '../assets/sql_basic.jpg';
+import deep_learning from '../assets/deep_learning.png';
 
 const Certifications = () => {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   const certifications = [
     {
       title: 'SQL Certification',
@@ -12,7 +18,8 @@ const Certifications = () => {
       gradient: 'from-blue-500 to-cyan-500',
       description: 'Demonstrated proficiency in SQL queries, joins, and database management',
       skills: ['SQL Queries', 'Database Design', 'Data Manipulation', 'Complex Joins'],
-      certificateUrl: '#',
+      certificateUrl: 'https://www.hackerrank.com/certificates/12bc77407094',
+      certificateImage: sql_basic, // Replace with: sqlCert (after importing)
       badgeColor: 'bg-blue-500'
     },
     {
@@ -23,7 +30,8 @@ const Certifications = () => {
       gradient: 'from-purple-500 to-pink-500',
       description: 'Completed comprehensive training in neural networks and deep learning architectures',
       skills: ['Neural Networks', 'CNN', 'RNN', 'Transfer Learning'],
-      certificateUrl: '#',
+      certificateUrl: 'https://www.kaggle.com/learn/certification/lokeshmeruva2910/intro-to-deep-learning',
+      certificateImage: deep_learning, // Replace with: deepLearningCert (after importing)
       badgeColor: 'bg-purple-500'
     }
   ];
@@ -145,21 +153,22 @@ const Certifications = () => {
 
                   {/* Action Buttons */}
                   <div className="flex gap-3 pt-4">
+                    <button
+                      onClick={() => setSelectedCert(cert)}
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r ${cert.gradient} rounded-lg text-white font-semibold hover:shadow-lg transition-all hover:scale-105`}
+                    >
+                      <Eye size={16} />
+                      View Certificate
+                    </button>
                     <a
                       href={cert.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r ${cert.gradient} rounded-lg text-white font-semibold hover:shadow-lg transition-all hover:scale-105`}
-                    >
-                      <ExternalLink size={16} />
-                      View Certificate
-                    </a>
-                    <button
                       className="flex items-center justify-center px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white hover:bg-white/10 hover:border-white/20 transition-all hover:scale-105"
-                      title="Download Certificate"
+                      title="View on Platform"
                     >
-                      <Download size={18} />
-                    </button>
+                      <ExternalLink size={18} />
+                    </a>
                   </div>
                 </div>
 
@@ -211,6 +220,90 @@ const Certifications = () => {
           </p>
         </motion.div>
       </div>
+
+      {/* Certificate Preview Modal */}
+      {selectedCert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="relative w-full max-w-5xl bg-gray-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-gradient-to-r from-gray-900 to-black">
+              <div>
+                <h3 className="text-2xl font-bold text-white">{selectedCert.title}</h3>
+                <p className={`text-lg font-semibold bg-gradient-to-r ${selectedCert.gradient} bg-clip-text text-transparent`}>
+                  {selectedCert.issuer}
+                </p>
+              </div>
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              >
+                <X size={24} className="text-white" />
+              </button>
+            </div>
+
+            {/* Certificate Image */}
+            <div className="p-6 max-h-[75vh] overflow-y-auto bg-gradient-to-b from-gray-900 to-black">
+              {selectedCert.certificateImage ? (
+                <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
+                  <img 
+                    src={selectedCert.certificateImage} 
+                    alt={`${selectedCert.title} Certificate`}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="bg-white/5 rounded-lg p-12 border border-white/10 text-center">
+                  <Award size={80} className="text-primary mx-auto mb-6 opacity-50" />
+                  <p className="text-gray-400 text-lg mb-4">
+                    Certificate image not available yet
+                  </p>
+                  <p className="text-gray-500 text-sm mb-6">
+                    Add your certificate image to assets folder and import it in the component
+                  </p>
+                  <a
+                    href={selectedCert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${selectedCert.gradient} rounded-lg text-white font-semibold hover:shadow-lg transition-all`}
+                  >
+                    <ExternalLink size={18} />
+                    View on {selectedCert.issuer}
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex items-center justify-between p-6 border-t border-white/10 bg-gradient-to-r from-black to-gray-900">
+              <div className="text-sm text-gray-400">
+                Issued: {selectedCert.date}
+              </div>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setSelectedCert(null)}
+                  className="px-6 py-2 bg-white/5 rounded-lg text-white hover:bg-white/10 transition-colors"
+                >
+                  Close
+                </button>
+                <a
+                  href={selectedCert.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 px-6 py-2 bg-gradient-to-r ${selectedCert.gradient} rounded-lg text-white font-semibold hover:shadow-lg transition-all`}
+                >
+                  <ExternalLink size={18} />
+                  View Original
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };
