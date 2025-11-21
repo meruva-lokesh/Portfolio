@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# Meruva Lokesh - Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, professional developer portfolio built with React.js, featuring smooth animations, responsive design, and interactive components.
+
+## 🚀 Features
+
+- **Modern Design**: Dark theme with vibrant cyan/blue/purple gradients
+- **Fully Responsive**: Optimized for mobile, tablet, and desktop
+- **Smooth Animations**: Powered by Framer Motion
+- **Interactive Components**: Animated cards, hover effects, and micro-interactions
+- **Contact Form**: Integrated with EmailJS for direct messaging
+- **Resume Download**: Multiple download options throughout the site
+- **SEO Optimized**: Meta tags and Open Graph protocol
+
+## 🛠️ Tech Stack
+
+- **Framework**: React.js (create-react-app)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Forms**: EmailJS
+- **Smooth Scroll**: React Scroll
 
 ## Available Scripts
 
